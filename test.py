@@ -34,6 +34,7 @@ def CirceMove():
 
   x0, y0, x1, y1 = canvas.coords(circleObj)
   canvas.move(circleObj, 0, CIRCLE_Y0 + (y0 * -1))
+  root.update()
 
   rndLine = random.randint(1, LINE_COUNT) # nejde LINES.count
   root.title(TITLE + " random line: #" + str(rndLine))
