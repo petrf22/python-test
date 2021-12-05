@@ -9,7 +9,6 @@ CIRCLE_WIDTH = 130                # průměr kružníce
 MOVE_STEP = 10                    # po kolika pixlech se bude krokovat (animace)
 SLEEP_TIME = .025                 # 25 ms - čas mezi kroky (animace)
 LINES = [550, 600, 650, 700, 750] # 5 linek
-LINE_COUNT = 5                    # kvůli náhodnému číslu - nejde udělat dynamicky náhodný rozsah pomocí LINES.count
 TITLE = "Moving ..."
 SPACE = 100
 # Inicializační souřadnice kružnice
@@ -36,7 +35,7 @@ def CirceMove():
   canvas.move(circleObj, 0, CIRCLE_Y0 + (y0 * -1))
   root.update()
 
-  rndLine = random.randint(1, LINE_COUNT) # nejde LINES.count
+  rndLine = random.randint(1, len(LINES))
   root.title(TITLE + " random line: #" + str(rndLine))
 
   for pos in range(CIRCLE_Y1, LINES[rndLine - 1], MOVE_STEP):
