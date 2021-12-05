@@ -24,8 +24,9 @@ root.title(TITLE)
 canvas = tkinter.Canvas(root, bg='white', width=CANVAS_WIDTH, height=CANVAS_HEIGHT)
 canvas.pack()
 
-for pos in LINES:
+for idx, pos in enumerate(LINES):
   canvas.create_line(SPACE, pos, CANVAS_WIDTH - SPACE, pos)
+  canvas.create_text(SPACE - 10 , pos, text=str(idx + 1))
 
 circleObj = canvas.create_oval(CIRCLE_X0, CIRCLE_Y0, CIRCLE_X1, CIRCLE_Y1, fill=CIRCLE_COLOR)
 
