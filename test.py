@@ -5,17 +5,18 @@ import random
 CANVAS_WIDTH = 800
 CANVAS_HEIGHT = 800
 CANVAS_PADY = 10
-CIRCLE_WIDTH = 130                # průměr kružníce
+CIRCLE_DIAMETER = 130             # průměr kružníce
+CIRCLE_COLOR = 'yellow'           # barva kružníce
 MOVE_STEP = 10                    # po kolika pixlech se bude krokovat (animace)
 SLEEP_TIME = .025                 # 25 ms - čas mezi kroky (animace)
 LINES = [550, 600, 650, 700, 750] # 5 linek
 TITLE = "Moving ..."
 SPACE = 100
 # Inicializační souřadnice kružnice
-CIRCLE_X0 = (CANVAS_WIDTH - CIRCLE_WIDTH) / 2
+CIRCLE_X0 = (CANVAS_WIDTH - CIRCLE_DIAMETER) / 2
 CIRCLE_Y0 = SPACE
-CIRCLE_X1 = CIRCLE_X0 + CIRCLE_WIDTH
-CIRCLE_Y1 = CIRCLE_Y0 + CIRCLE_WIDTH
+CIRCLE_X1 = CIRCLE_X0 + CIRCLE_DIAMETER
+CIRCLE_Y1 = CIRCLE_Y0 + CIRCLE_DIAMETER
 
 root = tkinter.Tk()
 root.title(TITLE)
@@ -26,7 +27,7 @@ canvas.pack()
 for pos in LINES:
   canvas.create_line(SPACE, pos, CANVAS_WIDTH - SPACE, pos)
 
-circleObj = canvas.create_oval(CIRCLE_X0, CIRCLE_Y0, CIRCLE_X1, CIRCLE_Y1, fill='yellow')
+circleObj = canvas.create_oval(CIRCLE_X0, CIRCLE_Y0, CIRCLE_X1, CIRCLE_Y1, fill=CIRCLE_COLOR)
 
 def CirceMove():
   # startButton["state"] = DISABLED # nefunguje :-(
